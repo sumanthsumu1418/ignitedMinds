@@ -1,13 +1,15 @@
+'use client';
+
 import { FC } from 'react';
 
 const Navbar: FC = () => {
   return (
-    <nav className="w-full bg-gradient-to-r from-purple-50 to-purple-200 shadow-md p-2 pb-0">
+    <nav className="w-full bg-gradient-to-r from-purple-50 to-purple-200 shadow-md pb-0">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4">
         
         {/* Logo */}
         <div className="flex items-center ml-8">
-          <img src="image/logo.png" alt="Ignited Minds Logo" className="h-16 w-auto opacity-75 cursor-pointer" />
+          <img src="image/logo.png" alt="Ignited Minds Logo" className="h-28 w-auto  cursor-pointer" />
         </div>
 
         {/* Mobile menu toggle (only visible on small screens) */}
@@ -21,7 +23,7 @@ const Navbar: FC = () => {
         </div>
 
         {/* Desktop Navigation Links (hidden on small screens, visible on medium and up) */}
-        <div className="hidden md:flex items-center space-x-16 text-black font-semibold text-lg lg:ml-80">
+        <div className="hidden md:flex items-center space-x-16 text-black font-semibold text-xl lg:ml-80">
           <button className="hover:text-purple-700">About Us</button>
           <button className="hover:text-purple-700">Courses</button>
           <button className="hover:text-purple-700">Blogs</button>
