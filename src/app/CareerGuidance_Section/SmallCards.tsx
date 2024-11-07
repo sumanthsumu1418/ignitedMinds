@@ -20,7 +20,7 @@ const SmallCards: FC<SmallCardsProps> = ({ data }) => {
                     {/* Background Shape */}
                     <div className='relative w-[104px] h-[120px] mx-auto mt-[14px]'>
                         <Image
-                            src="/images/CareerGuidance_Images/categories-bg-shape.svg fill.png" 
+                            src="/image/CareerGuidance_Images/categories-bg-shape.svg fill.png" 
                             alt="Background Shape"
                             layout="fill" // Fill parent element
                             objectFit="cover" // Cover while maintaining aspect ratio
@@ -36,7 +36,7 @@ const SmallCards: FC<SmallCardsProps> = ({ data }) => {
                             />
                         </div>
                     </div>
-                    <h3 className='text-[20px] font-normal leading-[20px] tracking-[-0.32px] text-center mb-[30px]'>{elem.title}</h3>
+                    <h3 className='text-[20px] font-normal leading-[20px] tracking-[-0.32px] text-center mb-[30px] text-black'>{elem.title}</h3>
                 </div>
             ))}
         </>
