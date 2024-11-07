@@ -1,0 +1,5 @@
+
+.backdropBlur {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); /* For Safari support */
+}
