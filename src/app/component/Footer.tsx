@@ -48,7 +48,7 @@ const Footer: FC = () => {
                 </div>
                 {/* Useful Links */}
                 <div className="sm:col-span-2 text-center md:text-left mt-8 md:mt-8 sm:ml-12">
-                    <h4 className="text-lg font-semibold mt-10 text-black">Useful Links</h4>
+                    <h4 className="text-lg font-semibold mt-10 text-black">Useful Link</h4>
                     <ul className="space-y-6 text-black text-sm pt-4">
                         <li><a href="#" className="hover:text-purple-700">About Us</a></li>
                         <li><a href="#" className="hover:text-purple-700">Courses</a></li>

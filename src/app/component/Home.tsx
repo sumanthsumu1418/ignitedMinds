@@ -23,32 +23,32 @@ const Home: FC = () => {
           />
 
           {/* Java Full Stack Text Box */}
-          <span className="absolute top-4 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute top-4 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl ">
             Java Full Stack<span className="text-yellow-500 px-1 py-2 text-sm">★</span>
           </span>
 
           {/* React Text Box */}
-          <span className="absolute top-72 -left-32 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute top-20 right-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:right-12 ">
             React<span className="text-yellow-500 text-sm px-2">★</span>
           </span>
 
           {/* Oracle Text Box */}
-          <span className="absolute top-60 right-4 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute top-48 right-0 transform px-1 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:top-60">
             Oracle<span className="text-yellow-500 text-sm px-2">★</span>
           </span>
 
           {/* Python Spark Text Box */}
-          <span className="absolute bottom-36 -left-24 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute bottom-24 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl  sm:bottom-36 sm:-left-24">
             Python Spark<span className="text-yellow-500 text-sm py-2 ">★</span>
           </span>
 
           {/* Snowflake Online Training Text Box */}
-          <span className="absolute bottom-0 left-1/3 transform -translate-x-1/2 px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute bottom-0 left-1/3 transform -translate-x-1/2 px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl">
             Snowflake<span className="text-yellow-500 text-sm px-4 py-0">★</span> <br />Online Training
           </span>
 
           {/* AWS DevOps Text Box */}
-          <span className="absolute bottom-40 right-10 transform px-2 pt-1 bg-gray-100 rounded-md text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute bottom-36 right-0 transform px-2 pt-1 bg-gray-100 rounded-md text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:bottom-44 sm:right-10">
             AWS Devops<span className="text-yellow-500 text-sm py-2">★</span>
           </span>
         </div>
