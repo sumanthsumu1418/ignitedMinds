@@ -1,19 +1,18 @@
-'use client'; // This marks the file as a client-side component
+"use client"; // This marks the file as a client-side component
 
-import { FC } from 'react';
+import { FC } from "react";
 
 const Home: FC = () => {
   return (
-    <div className="relative min-h-screen flex flex-col items-center bg-gradient-to-r from-purple-50 to-purple-200 px-4">
+    <div className="relative min-h-screen flex flex-col items-center bg-gradient-to-r from-purple-50 to-purple-200 px-4 mt-12 md:mt-24 overflow-hidden">
       <main className="relative flex flex-col md:flex-row-reverse items-center md:justify-between w-full px-4 space-y-6 md:space-y-0">
-
         {/* Image Section */}
         <div className="md:w-1/2 flex justify-center relative">
           {/* Arc image */}
           <img
             src="image/arc.png"
             alt="arc"
-            className="absolute top-14 left-1/2 transform -translate-x-1/2 z-0 rotate-[18deg] "
+            className="absolute top-14 left-1/2 transform -translate-x-1/2 z-0 rotate-[18deg]"
           />
           {/* Graduate Lady Image */}
           <img
@@ -23,12 +22,13 @@ const Home: FC = () => {
           />
 
           {/* Java Full Stack Text Box */}
-          <span className="absolute top-4 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl ">
-            Java Full Stack<span className="text-yellow-500 px-1 py-2 text-sm">★</span>
+          <span className="absolute top-4 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl">
+            Java Full Stack
+            <span className="text-yellow-500 px-1 py-2 text-sm">★</span>
           </span>
 
           {/* React Text Box */}
-          <span className="absolute top-20 right-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:right-12 ">
+          <span className="absolute top-20 right-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:right-12">
             React<span className="text-yellow-500 text-sm px-2">★</span>
           </span>
 
@@ -38,13 +38,15 @@ const Home: FC = () => {
           </span>
 
           {/* Python Spark Text Box */}
-          <span className="absolute bottom-24 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl  sm:bottom-36 sm:-left-24">
-            Python Spark<span className="text-yellow-500 text-sm py-2 ">★</span>
+          <span className="absolute bottom-24 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:bottom-36 sm:-left-24">
+            Python Spark<span className="text-yellow-500 text-sm py-2">★</span>
           </span>
 
           {/* Snowflake Online Training Text Box */}
           <span className="absolute bottom-0 left-1/3 transform -translate-x-1/2 px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl">
-            Snowflake<span className="text-yellow-500 text-sm px-4 py-0">★</span> <br />Online Training
+            Snowflake
+            <span className="text-yellow-500 text-sm px-4 py-0">★</span> <br />
+            Online Training
           </span>
 
           {/* AWS DevOps Text Box */}
@@ -61,14 +63,14 @@ const Home: FC = () => {
           <p className="text-3xl md:text-5xl font-semibold text-gray-800 leading-normal text-center md:text-left">
             <span className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-500 bg-clip-text text-transparent">
               Learn
-            </span> by Experts <br /> Get hired in <br />
+            </span>{" "}
+            by Experts <br /> Get hired in <br />
             corporates
             <img
               src="image/line1.png"
               alt="line"
               className="h-3 w-[58%] relative z-10 ml-2 md:mr-20"
             />
-
             <img
               src="image/line2.png"
               alt="line"
