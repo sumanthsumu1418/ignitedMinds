@@ -33,8 +33,13 @@ const testimonials = [
 
 export default function TestimonialCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
+    // Set window width when the component mounts
+    setWindowWidth(window.innerWidth);
+
+    // Set up the interval to change the testimonial index
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }, 5000);
@@ -68,7 +73,7 @@ export default function TestimonialCarousel() {
             className="flex transition-transform duration-1000 ease-in-out"
             style={{
               transform: `translateX(-${
-                currentIndex * (100 / (window.innerWidth < 768 ? 1 : 3))
+                currentIndex * (100 / (windowWidth < 768 ? 1 : 3))
               }%)`,
             }}
           >
@@ -84,7 +89,7 @@ export default function TestimonialCarousel() {
                       index >= currentIndex % testimonials.length &&
                       index <
                         (currentIndex % testimonials.length) +
-                          (window.innerWidth < 768 ? 1 : 3)
+                          (windowWidth < 768 ? 1 : 3)
                         ? 1
                         : 0.9
                     })`,

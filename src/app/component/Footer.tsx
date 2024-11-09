@@ -24,9 +24,10 @@ const Footer: FC = () => {
         {/* Contact Information */}
         <div className="sm:col-span-2 text-center md:text-left md:ml-0">
           <h3 className="text-5xl font-bold text-black mt-6">
-            Let's
+            Let&apos;s
             <br /> Connect.
           </h3>
+
           <p className="mt-8 text-black text-xs flex items-center justify-center md:justify-start space-x-2">
             <span className="relative w-4 h-4 rounded-full flex items-center justify-center bg-purple-500">
               <img src="/image/Map.png" alt="Icon" className="w-2 h-2" />
