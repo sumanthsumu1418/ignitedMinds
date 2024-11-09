@@ -1,45 +1,107 @@
-"use client"; // Ensure this is a client component if you have interactivity
+'use client';
 
-import React, { FC } from 'react';
-import Image from 'next/image'; // Import Next.js Image component for optimization
+import React, { FC, useEffect, useState } from "react";
+import Image from "next/image";
 
 interface CardData {
-    icon: string; // URL for the icon
-    title: string; // Title of the card
+    icon: string;
+    title: string;
 }
 
 interface SmallCardsProps {
-    data: CardData[]; // Prop type for the data array
+    data: CardData[];
 }
 
 const SmallCards: FC<SmallCardsProps> = ({ data }) => {
+    const [animate, setAnimate] = useState(false);
+
+    // Trigger the animation after 1 second
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setAnimate(true);
+        }, 1000); // 1 second delay
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    // Duplicate the data to create a seamless scrolling effect
+    const duplicatedData = [...data, ...data];
+
     return (
-        <>
-            {data.map((elem, index) => (
-                <div key={index} className="relative w-[305px] h-[198px] rounded-[7px] bg-[#EFFFDF] flex flex-col justify-between">
-                    {/* Background Shape */}
-                    <div className='relative w-[104px] h-[120px] mx-auto mt-[14px]'>
-                        <Image
-                            src="/image/CareerGuidance_Images/categories-bg-shape.svg fill.png" 
-                            alt="Background Shape"
-                            layout="fill" // Fill parent element
-                            objectFit="cover" // Cover while maintaining aspect ratio
-                        />
-                        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-                            {/* Centered Inner Image */}
-                            <Image
-                                src={elem.icon} 
-                                alt="Business Icon"
-                                width={78} // Set the width
-                                height={78} // Set the height
-                                objectFit="cover"
-                            />
+        <div className="overflow-x-hidden w-full relative">
+            {/* Animation applied on below sm, sm, and md screens */}
+            <div
+                className={`flex space-x-4 justify-start min-w-max ${animate ? "animate-scroll md:animate-scroll sm:animate-scroll" : ""
+                    } lg:hidden`}
+            >
+                {duplicatedData.map((elem, idx) => (
+                    <div
+                        key={idx}
+                        className="relative w-[350px] h-[198px] rounded-[7px] bg-[#E1F5FE] flex flex-col justify-between p-2 flex-none"
+                    >
+                        <div className="relative w-[104px] h-[120px] mx-auto mt-4">
+                            {/* Background Image */}
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="/image/CareerGuidance_Images/categories-bg-shape.svg fill.png"
+                                    alt="Background Shape"
+                                    layout="fill"
+                                    objectFit="cover"
+                                />
+                            </div>
+                            {/* Foreground Icon */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <Image
+                                    src={elem.icon}
+                                    alt={elem.title}
+                                    width={78}
+                                    height={78}
+                                    objectFit="cover"
+                                />
+                            </div>
                         </div>
+                        <h3 className="text-[16px] md:text-[20px] font-normal leading-[20px] tracking-[-0.32px] text-center mb-4 md:mb-[30px] text-black">
+                            {elem.title}
+                        </h3>
                     </div>
-                    <h3 className='text-[20px] font-normal leading-[20px] tracking-[-0.32px] text-center mb-[30px] text-black'>{elem.title}</h3>
-                </div>
-            ))}
-        </>
+                ))}
+            </div>
+
+            {/* Large Screens: No Animation, 4 Centered Cards */}
+            <div className="hidden lg:flex lg:justify-center lg:space-x-4 lg:max-w-[1440px] lg:mx-auto">
+                {data.slice(0, 4).map((elem, idx) => (
+                    <div
+                        key={idx}
+                        className="relative w-[350px] h-[198px] rounded-[7px] bg-[#E1F5FE] flex flex-col justify-between p-2 flex-none"
+                    >
+                        <div className="relative w-[104px] h-[120px] mx-auto mt-4">
+                            {/* Background Image */}
+                            <div className="relative w-full h-full">
+                                <Image
+                                    src="/image/CareerGuidance_Images/categories-bg-shape.svg fill.png"
+                                    alt="Background Shape"
+                                    layout="fill"
+                                    objectFit="cover"
+                                />
+                            </div>
+                            {/* Foreground Icon */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <Image
+                                    src={elem.icon}
+                                    alt={elem.title}
+                                    width={78}
+                                    height={78}
+                                    objectFit="cover"
+                                />
+                            </div>
+                        </div>
+                        <h3 className="text-[16px] md:text-[20px] font-normal leading-[20px] tracking-[-0.32px] text-center mb-4 md:mb-[30px] text-black">
+                            {elem.title}
+                        </h3>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 };
 
