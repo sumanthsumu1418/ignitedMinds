@@ -13,69 +13,67 @@ const Home: FC = () => {
           <img
             src="image/arc.png"
             alt="arc"
-            className="absolute top-14 left-1/2 transform -translate-x-1/2 z-0 rotate-[18deg]"
+            className="absolute top-14 left-1/2 transform -translate-x-1/2 z-0 rotate-[18deg] "
           />
           {/* Graduate Lady Image */}
           <img
             src="image/lady.png"
             alt="Graduate"
-            className="h-25 w-auto relative  mt-10 md:mr-20"
+            className="h-25 w-auto relative mt-10 md:mr-20"
           />
 
           {/* Java Full Stack Text Box */}
-          <span className="absolute top-4 left-0 transform  px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute top-4 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl ">
             Java Full Stack<span className="text-yellow-500 px-1 py-2 text-sm">★</span>
           </span>
 
           {/* React Text Box */}
-          <span className="absolute top-72 -left-32 transform  px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute top-20 right-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:right-12 ">
             React<span className="text-yellow-500 text-sm px-2">★</span>
           </span>
 
           {/* Oracle Text Box */}
-          <span className="absolute top-60 right-4 transform  px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute top-48 right-0 transform px-1 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:top-60">
             Oracle<span className="text-yellow-500 text-sm px-2">★</span>
           </span>
 
           {/* Python Spark Text Box */}
-          <span className="absolute bottom-36 -left-24 transform  px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute bottom-24 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl  sm:bottom-36 sm:-left-24">
             Python Spark<span className="text-yellow-500 text-sm py-2 ">★</span>
           </span>
 
           {/* Snowflake Online Training Text Box */}
-          <span className="absolute bottom-0 left-1/3 transform -translate-x-1/2  px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute bottom-0 left-1/3 transform -translate-x-1/2 px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl">
             Snowflake<span className="text-yellow-500 text-sm px-4 py-0">★</span> <br />Online Training
           </span>
 
           {/* AWS DevOps Text Box */}
-          <span className="absolute bottom-40 right-10 transform  px-2 pt-1 bg-gray-100 rounded-md text-black font-semibold text-2xl shadow z-20 tracking-wider">
+          <span className="absolute bottom-36 right-0 transform px-2 pt-1 bg-gray-100 rounded-md text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:bottom-44 sm:right-10">
             AWS Devops<span className="text-yellow-500 text-sm py-2">★</span>
           </span>
         </div>
 
         {/* Text Section */}
         <div className="md:w-1/2 flex flex-col items-start space-y-4 md:ml-16">
-          <h2 className="text-5xl md:text-5xl font-bold bg-gradient-to-r from-purple-900 via-purple-700 to-red-500 bg-clip-text text-transparent text-center md:text-left">
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-900 via-purple-700 to-red-500 bg-clip-text text-transparent text-center md:text-left">
             Attention Graduates!
           </h2>
-          <p className="text-4xl md:text-5xl font-semibold text-gray-800 leading-normal text-center md:text-left">
-            <span className='bg-gradient-to-r from-blue-800 via-blue-700 to-blue-500 bg-clip-text text-transparent'>
+          <p className="text-3xl md:text-5xl font-semibold text-gray-800 leading-normal text-center md:text-left">
+            <span className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-500 bg-clip-text text-transparent">
               Learn
             </span> by Experts <br /> Get hired in <br />
-
             corporates
             <img
               src="image/line1.png"
               alt="line"
-              className="h-3 w-[58%] relative z-10 ml-2  md:mr-20"
+              className="h-3 w-[58%] relative z-10 ml-2 md:mr-20"
             />
 
             <img
               src="image/line2.png"
               alt="line"
-              className="h-3 w-[40%] relative z-10 ml-14  md:mr-20"
+              className="h-3 w-[40%] relative z-10 ml-14 md:mr-20"
             />
-
           </p>
           <p className="text-sm text-gray-700 pt-4 pb-6 text-center md:text-left">
             We will provide industry-based job training with <br />
