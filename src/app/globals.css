@@ -33,7 +33,7 @@ body {
 
 /* Animation class */
 .animate-scroll {
-  animation: scrollAnimation 10s linear infinite;
+  animation: scrollAnimation 20s linear infinite;
   display: flex;
   width: 200%; /* 2x width for seamless loop */
 }
