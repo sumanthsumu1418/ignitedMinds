@@ -34,31 +34,34 @@ const Home: FC = () => {
 
           {/* Oracle Text Box */}
           <span className="absolute top-48 right-0 transform px-1 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:top-60">
-            Oracle<span className="text-yellow-500 text-sm px-2">★</span>
+            Data Analyst
+            <span className="text-yellow-500 text-sm px-2">★</span>
           </span>
 
           {/* Python Spark Text Box */}
           <span className="absolute bottom-24 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:bottom-36 sm:-left-24">
-            Python Spark<span className="text-yellow-500 text-sm py-2">★</span>
+            Python Data Engineering
+            <span className="text-yellow-500 text-sm py-2">★</span>
           </span>
 
           {/* Snowflake Online Training Text Box */}
           <span className="absolute bottom-0 left-1/3 transform -translate-x-1/2 px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl">
-            Snowflake
-            <span className="text-yellow-500 text-sm px-4 py-0">★</span> <br />
-            Online Training
+            Snowflake/ <br />
+            ETL Testing
+            <span className="text-yellow-500 text-sm px-4 py-0">★</span>
           </span>
 
           {/* AWS DevOps Text Box */}
           <span className="absolute bottom-36 right-0 transform px-2 pt-1 bg-gray-100 rounded-md text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:bottom-44 sm:right-10">
-            AWS Devops<span className="text-yellow-500 text-sm py-2">★</span>
+            AWS Cloud Engineering
+            <span className="text-yellow-500 text-sm py-2">★</span>
           </span>
         </div>
 
         {/* Text Section */}
         <div className="md:w-1/2 flex flex-col items-start space-y-4 md:ml-16">
           <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-900 via-purple-700 to-red-500 bg-clip-text text-transparent text-center md:text-left">
-            Attention Graduates!
+            Attention Job Seakers!
           </h2>
           <p className="text-3xl md:text-5xl font-semibold text-gray-800 leading-normal text-center md:text-left">
             <span className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-500 bg-clip-text text-transparent">

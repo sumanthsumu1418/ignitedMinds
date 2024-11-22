@@ -8,6 +8,7 @@ import Home from "./component/Home";
 import Navbar from "./component/Navbar";
 import Component from "./component/placement/page";
 import TestimonialCarousel from "./component/TestimonialCard";
+import Chatbot from "./component/ChatBot";
 
 const HomePage: React.FC = () => (
   <main className="min-h-screen bg-gray-50">
@@ -19,7 +20,9 @@ const HomePage: React.FC = () => (
     <Component />
     <TestimonialCarousel />
     <ContactForm />
+    {/* <Register /> */}
     <Footer />
+    <Chatbot />
   </main>
 );
 

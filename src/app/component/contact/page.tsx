@@ -95,12 +95,12 @@ export default function ContactForm() {
             />
           </div>
 
-          <button
+          {/* <button
             className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-2 rounded-full shadow-md"
             ref={buttonRef}
           >
             ENQUIRE NOW
-          </button>
+          </button> */}
         </div>
 
         <div className="w-full max-w-xl relative">

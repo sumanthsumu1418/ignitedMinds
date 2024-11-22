@@ -1,7 +1,82 @@
-
-.backdropBlur {
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px); /* For Safari support */
+/* 
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 
+@keyframes shake {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(2px, -2px);
+  }
+  50% {
+    transform: translate(-2px, 2px);
+  }
+  75% {
+    transform: translate(1px, -1px);
+  }
+}
+
+
+.icon:hover {
+  animation: shake 0.6s ease-in-out;
+}
+
+.card:hover {
+  background-color: rgba(225, 245, 254, 0.9); 
+  transition: background-color 0.3s ease-in-out;
+}
+ */
+
+
+
+ /* Container Styling for the Cards */
+.card {
+  overflow: hidden; /* Prevents overflow from hover effects */
+}
+
+/* Hover Effect for Individual Cards */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Shake Animation for Icons and SVGs */
+@keyframes shakeHorizontal {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  75% {
+    transform: translateX(-2px);
+  }
+}
+
+/* Apply shake animation when hovering over the icon */
+.icon:hover {
+  animation: shakeHorizontal 0.5s ease-in-out;
+}
+
+/* Smooth Background Transition */
+.card:hover {
+  background-color: rgba(225, 245, 254, 0.9);
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
