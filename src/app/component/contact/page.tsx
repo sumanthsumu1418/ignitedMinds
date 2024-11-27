@@ -62,24 +62,22 @@ export default function ContactForm() {
     };
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
   };
 
   return (
     <div
-      className="min-h-screen bg-gradient-to-r from-purple-50 to-purple-200 p-4 md:p-8 relative "
+      className="min-h-screen bg-black p-4 md:p-8 relative text-white"
       ref={containerRef}
     >
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
         <div className="text-center md:text-left space-y-8" ref={headerRef}>
           <div className="space-y-4">
-            <div className="w-12 h-1 bg-purple-600 hidden md:block" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
-              Get in Touch
-            </h1>
-            <p className="text-lg text-gray-600 max-w-md mx-auto md:mx-0">
+            <div className="w-12 h-1 bg-red-600 hidden md:block" />
+            <h1 className="text-4xl md:text-5xl font-bold">Get in Touch</h1>
+            <p className="text-lg text-red-300 max-w-md mx-auto md:mx-0">
               Would you like to speak to one of our consultants over the phone?
             </p>
           </div>
@@ -94,37 +92,27 @@ export default function ContactForm() {
               className="w-full h-full object-contain"
             />
           </div>
-
-          {/* <button
-            className="bg-white text-purple-600 hover:bg-gray-100 font-semibold px-8 py-2 rounded-full shadow-md"
-            ref={buttonRef}
-          >
-            ENQUIRE NOW
-          </button> */}
         </div>
 
         <div className="w-full max-w-xl relative">
           <div className="absolute -top-3 right-4 z-10">
-            <div className="bg-white px-6 py-2 rounded-full text-[#a855f7] font-medium relative">
+            <div className="bg-red-900 px-6 py-2 rounded-full text-white font-medium relative">
               Join us now!
             </div>
           </div>
 
           <div
-            className="bg-[#e9d5ff] rounded-[2rem] p-8 shadow-lg"
+            className="bg-gray-900 rounded-[2rem] p-8 shadow-lg"
             ref={formRef}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">
+              <h2 className="text-2xl font-bold text-white mb-6">
                 Want us to call back?
               </h2>
 
               <div className="space-y-5">
                 <div>
-                  <label
-                    htmlFor="fullName"
-                    className="block text-gray-700 mb-2"
-                  >
+                  <label htmlFor="fullName" className="block text-red-300 mb-2">
                     Full Name
                   </label>
                   <input
@@ -134,7 +122,7 @@ export default function ContactForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, fullName: e.target.value })
                     }
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#a855f7]"
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-red-500 text-white"
                   />
                 </div>
 
@@ -142,7 +130,7 @@ export default function ContactForm() {
                   <div>
                     <label
                       htmlFor="contactNumber"
-                      className="block text-gray-700 mb-2"
+                      className="block text-red-300 mb-2"
                     >
                       Contact Number
                     </label>
@@ -157,11 +145,11 @@ export default function ContactForm() {
                           contactNumber: e.target.value,
                         })
                       }
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#a855f7]"
+                      className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-red-500 text-white"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 mb-2">
+                    <label htmlFor="email" className="block text-red-300 mb-2">
                       Email
                     </label>
                     <input
@@ -172,13 +160,13 @@ export default function ContactForm() {
                       onChange={(e) =>
                         setFormData({ ...formData, email: e.target.value })
                       }
-                      className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#a855f7]"
+                      className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-red-500 text-white"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 mb-3">
+                  <label className="block text-red-300 mb-3">
                     SELECT COURSE
                   </label>
                   <div className="space-y-3">
@@ -190,7 +178,7 @@ export default function ContactForm() {
                     ].map((course) => (
                       <label
                         key={course}
-                        className="flex items-center space-x-3 text-gray-500"
+                        className="flex items-center space-x-3 text-red-200"
                       >
                         <input
                           type="radio"
@@ -198,7 +186,7 @@ export default function ContactForm() {
                           value={course}
                           checked={formData.course === course}
                           onChange={() => setFormData({ ...formData, course })}
-                          className="w-4 h-4 text-[#a855f7] border-gray-300 focus:ring-[#a855f7]"
+                          className="w-4 h-4 text-red-600 border-gray-700 focus:ring-red-500"
                         />
                         <span>{course}</span>
                       </label>
@@ -207,7 +195,7 @@ export default function ContactForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-red-300 mb-2">
                     MESSAGE
                   </label>
                   <textarea
@@ -217,14 +205,14 @@ export default function ContactForm() {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-[#a855f7] h-32 resize-none"
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-red-500 h-32 resize-none text-white"
                   />
                 </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#a855f7] text-white py-3 rounded-lg hover:bg-[#9333ea] transition-colors"
+                className="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors"
               >
                 SUBMIT
               </button>
@@ -233,7 +221,7 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div className="text-center mt-8 text-gray-800 text-xl font-medium max-w-2xl mx-auto">
+      <div className="text-center mt-8 text-red-300 text-xl font-medium max-w-2xl mx-auto">
         Strengthen your career prospects and get placed in renowned companies
       </div>
 

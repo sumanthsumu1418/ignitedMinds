@@ -16,7 +16,7 @@ const testimonials = [
   },
   {
     name: "Manjunath",
-    role: "Adminstrative Manager",
+    role: "Administrative Manager",
     image: "/placeholder.svg?height=400&width=400",
   },
   {
@@ -36,36 +36,33 @@ export default function TestimonialCarousel() {
   const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
-    // Set window width when the component mounts
     setWindowWidth(window.innerWidth);
 
-    // Set up the interval to change the testimonial index
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
     }, 5000);
 
-    return () => clearInterval(timer);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
-    <div className="w-full bg-gradient-to-r from-purple-50 to-purple-200 px-4 md:px-6 py-10 md:py-20">
+    <div className="w-full bg-black px-4 md:px-6 py-10 md:py-20">
       <div className="container mx-auto max-w-[1390px] h-auto md:h-[878px]">
         <div className="relative mb-8 md:mb-16">
           <h2
-            className="text-4xl md:text-[83.86px] leading-tight md:leading-[109.02px] text-gray-800 font-bold"
-            style={{ fontFamily: "var(--fontfamilyFont3)" }}
+            className="text-4xl md:text-[83.86px] leading-tight md:leading-[109.02px] text-white font-bold relative"
+            style={{ fontFamily: "Lexend, sans-serif" }}
           >
             Our reputation
             <br />
             says it all
           </h2>
-          <Image
-            src="/image/UnderL.png"
-            alt=""
-            width={300}
-            height={20}
-            className="absolute top-[90%] md:top-[90px] left-0 w-1/2 md:w-auto"
-          />
         </div>
 
         <div className="relative overflow-hidden">
@@ -96,9 +93,8 @@ export default function TestimonialCarousel() {
                   }}
                 >
                   <div className="relative group mx-auto max-w-[309.17px]">
-                    {/* Dashed border with specified layout */}
                     <div
-                      className="absolute inset-0 border-2 border-dashed border-purple-400"
+                      className="absolute inset-0 border-2 border-dashed border-red-400"
                       style={{
                         width: "100%",
                         height: "100%",
@@ -108,14 +104,12 @@ export default function TestimonialCarousel() {
                       }}
                     ></div>
 
-                    {/* Testimonial Card */}
                     <div
-                      className="w-full h-auto md:h-[452.6px] bg-[#FFF7FC] rounded-[10px_0_0_0] pt-[22px]"
+                      className="w-full h-auto md:h-[452.6px] bg-gray-900 rounded-[10px_0_0_0] pt-[22px]"
                       style={{ padding: "22px 0 0 0" }}
                     >
                       <div className="flex flex-col items-center gap-[21px] p-4">
-                        {/* Square Image Background */}
-                        <div className="w-32 h-32 md:w-[192px] md:h-[192px] bg-gray-100 overflow-hidden">
+                        <div className="w-32 h-32 md:w-[192px] md:h-[192px] bg-gray-800 overflow-hidden">
                           <Image
                             src={testimonial.image}
                             alt={testimonial.name}
@@ -124,20 +118,20 @@ export default function TestimonialCarousel() {
                             className="w-full h-full object-cover"
                           />
                         </div>
-                        <h3 className="text-lg md:text-xl font-semibold text-gray-900">
+                        <h3 className="text-lg md:text-xl font-semibold text-white">
                           {testimonial.name}
                         </h3>
-                        <p className="text-sm md:text-base text-gray-600">
+                        <p className="text-sm md:text-base text-red-300">
                           {testimonial.role}
                         </p>
                         <div className="flex gap-4 mt-2">
-                          <button className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-purple-500 flex items-center justify-center text-white hover:bg-purple-600 transition-colors text-sm md:text-base">
+                          <button className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition-colors text-sm md:text-base">
                             G
                           </button>
-                          <button className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-purple-500 flex items-center justify-center text-white hover:bg-purple-600 transition-colors text-sm md:text-base">
+                          <button className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition-colors text-sm md:text-base">
                             X
                           </button>
-                          <button className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-purple-500 flex items-center justify-center text-white hover:bg-purple-600 transition-colors text-sm md:text-base">
+                          <button className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-red-600 flex items-center justify-center text-white hover:bg-red-700 transition-colors text-sm md:text-base">
                             in
                           </button>
                         </div>

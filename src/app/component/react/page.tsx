@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  Plane,
   Code,
   BookOpen,
   Users,
@@ -15,6 +14,7 @@ import {
   FileText,
 } from "lucide-react";
 import Link from "next/link";
+import { FaReact } from "react-icons/fa";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 
@@ -26,46 +26,39 @@ const carouselImages = [
 // Enhanced Card Component
 function Card({ className = "", children }) {
   return (
-    <motion.div
-      className={`bg-gradient-to-br from-purple-100 to-purple-300 rounded-3xl shadow-2xl overflow-hidden ${className}`}
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
+    <div
+      className={`bg-gradient-to-br from-red-900 via-black to-red-700 rounded-3xl shadow-2xl overflow-hidden mx-4 sm:mx-auto my-8 sm:my-12 ${className}`}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
 function CardContent({ className = "", children }) {
-  return (
-    <motion.div
-      className={`p-4 sm:p-8 ${className}`}
-      initial={{ y: 20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ delay: 0.2, duration: 0.5 }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={`p-4 sm:p-8 ${className}`}>{children}</div>;
 }
 
-export default function JavaFullStackCourse() {
+export default function ReactCourse() {
   const [activeTab, setActiveTab] = useState("overview");
-  const [page, setPage] = useState(0);
-  const direction = page > 0 ? "next" : "prev";
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Pagination function
-  const paginate = (direction) => {
-    setPage(
-      (prevPage) =>
-        (prevPage + direction + carouselImages.length) % carouselImages.length
-    );
-  };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % carouselImages.length
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    console.log("Active tab changed to:", activeTab);
+  }, [activeTab]);
 
   const courseContent = {
     overview: (
-      <div className="space-y-4">
+      <div className="space-y-4 text-white">
         <p>
           A React.js developer is a front-end developer specializing in building
           dynamic, responsive, and user-friendly web interfaces using the
@@ -95,16 +88,10 @@ export default function JavaFullStackCourse() {
             },
             { icon: FileText, text: "Resume Preparation and mock Interviews" },
           ].map((item, index) => (
-            <motion.li
-              key={index}
-              className="flex items-center space-x-2"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <item.icon className="w-5 h-5 text-purple-600" />
+            <li key={index} className="flex items-center space-x-2">
+              <item.icon className="w-5 h-5 text-red-400" />
               <span>{item.text}</span>
-            </motion.li>
+            </li>
           ))}
         </ul>
       </div>
@@ -167,217 +154,243 @@ export default function JavaFullStackCourse() {
       "2 Batch Repetitions are allowed with zero cost",
     ],
   };
-
+  // const tabContent = {
+  //   overview: courseContent.overview,
+  //   objectives: (
+  //     <ul className="list-disc pl-5 space-y-2 text-white">
+  //       {courseContent.objectives.map((objective, index) => (
+  //         <li key={index}>{objective}</li>
+  //       ))}
+  //     </ul>
+  //   ),
+  //   curriculum: (
+  //     <ul className="list-disc pl-5 md:columns-2 space-y-2 text-white">
+  //       {courseContent.curriculum.map((topic, index) => (
+  //         <li key={index}>{topic}</li>
+  //       ))}
+  //     </ul>
+  //   ),
+  //   benefits: (
+  //     <ul className="list-disc pl-5 space-y-2 text-white">
+  //       {courseContent.benefits.map((benefit, index) => (
+  //         <li key={index}>{benefit}</li>
+  //       ))}
+  //     </ul>
+  //   ),
+  // };
   const tabContent = {
     overview: courseContent.overview,
     objectives: (
-      <ul className="list-disc pl-5 space-y-2">
+      <ul className="list-disc pl-5 space-y-2 text-white">
         {courseContent.objectives.map((objective, index) => (
-          <motion.li
-            key={index}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            {objective}
-          </motion.li>
+          <li key={index}>{objective}</li>
         ))}
       </ul>
     ),
     curriculum: (
-      <ul className="list-disc pl-5 md:columns-2 space-y-2">
+      <ul className="list-disc pl-5 md:columns-2 space-y-2 text-white">
         {courseContent.curriculum.map((topic, index) => (
-          <motion.li
-            key={index}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.05 }}
-          >
-            {topic}
-          </motion.li>
+          <li key={index}>{topic}</li>
         ))}
       </ul>
     ),
     benefits: (
-      <ul className="list-disc pl-5 space-y-2">
+      <ul className="list-disc pl-5 space-y-2 text-white">
         {courseContent.benefits.map((benefit, index) => (
-          <motion.li
-            key={index}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            {benefit}
-          </motion.li>
+          <li key={index}>{benefit}</li>
         ))}
       </ul>
     ),
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-purple-50 to-purple-200 p-4 sm:p-8 font-sans">
-      {/* Remove or comment out these lines */}
-      <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-lg">
-        <Navbar />
-      </div>
-
-      {/* Carousel and Text Section Above Course Card */}
-      <motion.section
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        className="relative overflow-hidden mb-12 h-48 sm:h-72 md:h-96 mt-16"
-      >
-        <AnimatePresence initial={false} custom={direction}>
+    <div className="min-h-screen bg-black text-white font-sans">
+      <Navbar />
+      {/* Hero Section with Auto-changing Background */}
+      <section className="relative h-screen overflow-hidden">
+        <AnimatePresence initial={false}>
           <motion.div
-            key={page}
-            custom={direction}
-            variants={{
-              initial: { opacity: 0, x: direction === "next" ? 200 : -200 },
-              animate: { opacity: 1, x: 0 },
-              exit: { opacity: 0, x: direction === "next" ? -200 : 200 },
-            }}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
-            }}
-            className="absolute w-full h-full"
+            key={currentImageIndex}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
           >
             <Image
-              src={carouselImages[page].src}
-              alt={carouselImages[page].alt}
+              src={carouselImages[currentImageIndex].src}
+              alt={carouselImages[currentImageIndex].alt}
               layout="fill"
               objectFit="cover"
               quality={100}
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black"></div>
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 flex items-center justify-between p-4">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => paginate(-1)}
-            className="p-2 bg-black bg-opacity-50 text-white rounded-full"
-            aria-label="Previous slide"
-          >
-            &lt;
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            onClick={() => paginate(1)}
-            className="p-2 bg-black bg-opacity-50 text-white rounded-full"
-            aria-label="Next slide"
-          >
-            &gt;
-          </motion.button>
-        </div>
-      </motion.section>
-
-      <motion.section
-        variants={{
-          initial: { opacity: 0, y: 20 },
-          animate: { opacity: 1, y: 0 },
-        }}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        className="text-center mb-12"
-      >
-        <motion.p
-          variants={{ initial: { opacity: 0 }, animate: { opacity: 1 } }}
-          className="text-base sm:text-lg mb-6 text-gray-800 leading-relaxed max-w-3xl mx-auto"
-        >
-          A React.js developer is a front-end developer specializing in building
-          dynamic, responsive, and user-friendly web interfaces using the
-          React.js library, which is maintained by Facebook. React is popular
-          for its component-based architecture, allowing developers to create
-          reusable, modular components that manage their own state and
-          efficiently update the DOM using React's virtual DOM mechanism.
-        </motion.p>
-      </motion.section>
-
-      {/* Enhanced Java Full Stack Course Card */}
-      <Card className="max-w-5xl mx-auto my-12">
-        <CardContent>
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-purple-800 mb-8 text-center"
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="text-4xl md:text-6xl font-bold text-white mb-4"
           >
             React Course
           </motion.h1>
-
-          <motion.div
-            className="flex flex-wrap justify-center gap-4 mb-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+            className="text-xl md:text-2xl text-gray-200 mb-8"
           >
+            Master the art of Frontend development with React & Next.js
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9 }}
+          >
+            <Link
+              href="/component/contact"
+              className="bg-red-600 text-white px-8 py-4 rounded-full text-xl font-bold hover:bg-red-700 transition duration-300 shadow-lg inline-block"
+            >
+              Enroll Now
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+      {/* Enhanced Java Full Stack Course Card */}
+      {/* <div className="bg-gradient-to-br from-red-900 via-black to-red-700 rounded-3xl shadow-2xl overflow-hidden mx-4 sm:mx-auto my-8 sm:my-12 max-w-5xl">
+        <div className="p-4 sm:p-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-8 text-center">
+            Course Details
+          </h2>
+
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
             {Object.keys(tabContent).map((tab) => (
-              <motion.button
+              <button
                 key={tab}
                 className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold transition-colors duration-300 ${
                   activeTab === tab
-                    ? "bg-purple-600 text-white"
-                    : "bg-purple-200 text-purple-800 hover:bg-purple-300"
+                    ? "bg-red-600 text-white shadow-lg"
+                    : "bg-red-200 text-red-800 hover:bg-red-300"
                 }`}
                 onClick={() => setActiveTab(tab)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
-              </motion.button>
+              </button>
             ))}
-          </motion.div>
+          </div>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              className="text-purple-900 text-base sm:text-lg leading-relaxed"
-            >
-              {tabContent[activeTab]}
-            </motion.div>
-          </AnimatePresence>
-
-          <motion.div
-            className="mt-12 flex justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
+          <div
+            key={activeTab}
+            className="text-white text-base sm:text-lg leading-relaxed"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link
-                href="/component/contact"
-                className="bg-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:bg-purple-700 transition duration-300 shadow-lg"
+            {tabContent[activeTab]}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/component/contact"
+              className="bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:bg-red-700 transition duration-300 shadow-lg"
+            >
+              ENQUIRE NOW
+            </Link>
+          </div>
+        </div>
+      </div> */}
+      {/* Course Details Section */}
+      <Card>
+        <CardContent>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-8 text-center">
+            Course Details
+          </h2>
+
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
+            {Object.keys(tabContent).map((tab) => (
+              <button
+                key={tab}
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold transition-colors duration-300 ${
+                  activeTab === tab
+                    ? "bg-red-600 text-white shadow-lg"
+                    : "bg-red-200 text-red-800 hover:bg-red-300"
+                }`}
+                onClick={() => setActiveTab(tab)}
               >
-                ENQUIRE NOW
-              </Link>
-            </motion.div>
-          </motion.div>
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
+            ))}
+          </div>
+
+          <div
+            key={activeTab}
+            className="text-white text-base sm:text-lg leading-relaxed"
+          >
+            {tabContent[activeTab]}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/component/contact"
+              className="bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:bg-red-700 transition duration-300 shadow-lg"
+            >
+              ENQUIRE NOW
+            </Link>
+          </div>
+        </CardContent>
+      </Card>{" "}
+      {/* Course Details Section */}
+      <Card>
+        <CardContent>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-8 text-center">
+            Course Details
+          </h2>
+
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8">
+            {Object.keys(tabContent).map((tab) => (
+              <button
+                key={tab}
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-base sm:text-lg font-semibold transition-colors duration-300 ${
+                  activeTab === tab
+                    ? "bg-red-600 text-white shadow-lg"
+                    : "bg-red-200 text-red-800 hover:bg-red-300"
+                }`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
+            ))}
+          </div>
+
+          <div
+            key={activeTab}
+            className="text-white text-base sm:text-lg leading-relaxed"
+          >
+            {tabContent[activeTab]}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/component/contact"
+              className="bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-lg sm:text-xl font-bold hover:bg-red-700 transition duration-300 shadow-lg"
+            >
+              ENQUIRE NOW
+            </Link>
+          </div>
         </CardContent>
       </Card>
-
       {/* New Programming Languages & Tools Section */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl shadow-2xl p-6 sm:p-8 max-w-5xl mx-auto my-12 text-white"
+        className="bg-gradient-to-br from-red-900 via-black to-red-700 rounded-3xl shadow-2xl p-6 sm:p-8 max-w-5xl mx-auto my-12 text-white relative overflow-hidden"
       >
+        <div className="absolute inset-0 bg-[url('/path/to/circuit-pattern.svg')] opacity-10"></div>
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-2xl sm:text-3xl font-bold text-center mb-8"
+          className="text-2xl sm:text-3xl font-bold text-center mb-8 relative z-10"
         >
           Programming Languages & Tools Covered
         </motion.h2>
@@ -386,7 +399,7 @@ export default function JavaFullStackCourse() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 sm:gap-8 mb-8"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-4 md:gap-8 mb-6 sm:mb-8 relative z-10"
         >
           {[
             "/image/Courses/react1.jpeg",
@@ -399,7 +412,7 @@ export default function JavaFullStackCourse() {
               key={index}
               whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
-              className="bg-white rounded-xl p-2 sm:p-4 flex items-center justify-center shadow-lg"
+              className="bg-white rounded-xl p-2 sm:p-4 flex items-center justify-center shadow-lg transform transition-all duration-300 hover:shadow-2xl hover:bg-red-100"
             >
               <Image
                 src={src}
@@ -416,7 +429,7 @@ export default function JavaFullStackCourse() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="bg-white bg-opacity-10 rounded-xl p-4 sm:p-6 backdrop-filter backdrop-blur-lg"
+          className="bg-gradient-to-r from-red-800 to-red-600 rounded-xl p-4 sm:p-6 backdrop-filter backdrop-blur-lg relative z-10"
         >
           <h3 className="text-xl sm:text-2xl font-semibold mb-4 text-center">
             Course Highlights
@@ -439,30 +452,31 @@ export default function JavaFullStackCourse() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <item.icon className="w-5 h-5 text-yellow-300" />
+                <item.icon className="w-5 h-5 text-red-300" />
                 <span className="text-sm sm:text-base">{item.text}</span>
               </motion.li>
             ))}
           </ul>
         </motion.div>
       </motion.section>
-
       <motion.section
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}
-        className="bg-white rounded-lg shadow-lg p-6 sm:p-8 mb-20"
+        className="bg-gradient-to-r from-red-900 via-black to-red-700 rounded-lg shadow-lg p-4 sm:p-6 md:p-8 mb-12 sm:mb-20 mx-4 sm:mx-auto relative overflow-hidden"
       >
-        <motion.div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8 max-w-6xl mx-auto">
+        <div className="absolute inset-0 bg-[url('/path/to/tech-pattern.svg')] opacity-5"></div>
+        <motion.div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-8 max-w-6xl mx-auto relative z-10">
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-center sm:text-left">
             <motion.div
-              className="text-purple-600 flex-shrink-0"
+              className="text-white flex-shrink-0"
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.5 }}
             >
-              <Plane className="w-12 h-12 sm:w-16 sm:h-16" />
+              {/* <Plane className="w-12 h-12 sm:w-16 sm:h-16" /> */}
+              <FaReact className="w-15 h-15 sm:w-16 sm:h-16" />
             </motion.div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-800 max-w-2xl">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white max-w-2xl">
               Strengthen your career prospects and get placed in renowned
               companies
             </h2>
@@ -474,16 +488,14 @@ export default function JavaFullStackCourse() {
           >
             <Link
               href="/component/contact"
-              className="px-6 sm:px-8 py-3 text-white bg-purple-600 rounded-full hover:bg-purple-700 transition-colors duration-300 font-semibold text-sm sm:text-base w-full sm:w-auto block text-center"
+              className="px-6 sm:px-8 py-3 text-red-900 bg-white rounded-full hover:bg-red-100 transition-colors duration-300 font-semibold text-sm sm:text-base w-full sm:w-auto block text-center shadow-lg hover:shadow-xl"
             >
               ENQUIRE NOW
             </Link>
           </motion.div>
         </motion.div>
       </motion.section>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

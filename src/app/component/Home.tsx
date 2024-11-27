@@ -1,114 +1,107 @@
-"use client"; // This marks the file as a client-side component
+
+
+"use client";
 
 import { FC } from "react";
+import Image from "next/image";
 
 const Home: FC = () => {
   return (
-    <div className="relative min-h-screen flex flex-col items-center bg-gradient-to-r from-purple-50 to-purple-200 px-4 mt-12 md:mt-24 overflow-hidden">
-      <main className="relative flex flex-col md:flex-row-reverse items-center md:justify-between w-full px-4 space-y-6 md:space-y-0">
-        {/* Image Section */}
-        <div className="md:w-1/2 flex justify-center relative">
-          {/* Arc image */}
-          <img
-            src="image/arc.png"
-            alt="arc"
-            className="absolute top-14 left-1/2 transform -translate-x-1/2 z-0 rotate-[18deg]"
-          />
-          {/* Graduate Lady Image */}
-          <img
-            src="image/lady.png"
-            alt="Graduate"
-            className="h-25 w-auto relative mt-10 md:mr-20"
-          />
-
-          {/* Java Full Stack Text Box */}
-          <span className="absolute top-4 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl">
-            Java Full Stack
-            <span className="text-yellow-500 px-1 py-2 text-sm">★</span>
-          </span>
-
-          {/* React Text Box */}
-          <span className="absolute top-20 right-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:right-12">
-            React<span className="text-yellow-500 text-sm px-2">★</span>
-          </span>
-
-          {/* Oracle Text Box */}
-          <span className="absolute top-48 right-0 transform px-1 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:top-60">
-            Data Analyst
-            <span className="text-yellow-500 text-sm px-2">★</span>
-          </span>
-
-          {/* Python Spark Text Box */}
-          <span className="absolute bottom-24 left-0 transform px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:bottom-36 sm:-left-24">
-            Python Data Engineering
-            <span className="text-yellow-500 text-sm py-2">★</span>
-          </span>
-
-          {/* Snowflake Online Training Text Box */}
-          <span className="absolute bottom-0 left-1/3 transform -translate-x-1/2 px-2 pt-1 bg-gray-100 rounded text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl">
-            Snowflake/ <br />
-            ETL Testing
-            <span className="text-yellow-500 text-sm px-4 py-0">★</span>
-          </span>
-
-          {/* AWS DevOps Text Box */}
-          <span className="absolute bottom-36 right-0 transform px-2 pt-1 bg-gray-100 rounded-md text-black font-semibold text-xl shadow z-20 tracking-wider sm:text-2xl sm:bottom-44 sm:right-10">
-            AWS Cloud Engineering
-            <span className="text-yellow-500 text-sm py-2">★</span>
-          </span>
-        </div>
-
-        {/* Text Section */}
-        <div className="md:w-1/2 flex flex-col items-start space-y-4 md:ml-16">
-          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-900 via-purple-700 to-red-500 bg-clip-text text-transparent text-center md:text-left">
-            Attention Job Seakers!
+    <div className="w-full bg-black text-white">
+      {/* Main content */}
+      <div className="max-w-7xl mx-auto px-4 min-h-[calc(100vh-64px)] flex items-center">
+        {/* Text Section - Left side */}
+        <div className="w-full lg:w-1/2 flex flex-col items-start space-y-6">
+          <h2 className="text-5xl md:text-6xl font-bold text-red-500">
+            Attention Job Seekers!
           </h2>
-          <p className="text-3xl md:text-5xl font-semibold text-gray-800 leading-normal text-center md:text-left">
-            <span className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-500 bg-clip-text text-transparent">
-              Learn
-            </span>{" "}
-            by Experts <br /> Get hired in <br />
+          <div className="text-4xl md:text-5xl font-semibold leading-tight">
+            <span className="text-red-400">Learn</span> by Experts <br /> 
+            Get hired in <br />
             corporates
-            <img
-              src="image/line1.png"
-              alt="line"
-              className="h-3 w-[58%] relative z-10 ml-2 md:mr-20"
-            />
-            <img
-              src="image/line2.png"
-              alt="line"
-              className="h-3 w-[40%] relative z-10 ml-14 md:mr-20"
-            />
-          </p>
-          <p className="text-sm text-gray-700 pt-4 pb-6 text-center md:text-left">
-            We will provide industry-based job training with <br />
-            100% placement.
+            <div className="relative mt-4">
+              <Image
+                src="/image/line1.png"
+                alt="line"
+                width={250}
+                height={15}
+                className="relative z-10"
+              />
+              <Image
+                src="/image/line2.png"
+                alt="line"
+                width={175}
+                height={15}
+                className="relative z-10 mt-2 ml-10"
+              />
+            </div>
+          </div>
+          <p className="text-xl text-gray-300 max-w-xl">
+            We will provide industry-based job training with 100% placement.
           </p>
 
           {/* Explore Now Button */}
-          <button className="relative w-[242px] h-[59px] overflow-hidden border-2 border-black text-black rounded-[5px] font-semibold shadow-lg flex items-center group">
-            {/* Arrow with initial black background */}
-            <span className="relative z-10 text-white text-2xl bg-black md:px-6 md:py-3 px-4 py-3">
+          <button className="relative w-64 h-16 overflow-hidden border-2 border-red-500 text-red-500 rounded-md font-semibold shadow-lg flex items-center group mt-8">
+            <span className="relative z-10 text-white text-2xl bg-red-500 px-6 py-4">
               →
             </span>
-            {/* Button Text */}
-            <span className="relative text-lg z-10 pl-4 pr-4 transition-all duration-500 group-hover:text-white">
+            <span className="relative text-xl z-10 pl-4 pr-4 transition-all duration-500 group-hover:text-white">
               Explore Now
             </span>
-            {/* Expanding Background Overlay */}
-            <span className="absolute inset-0 bg-black transition-transform duration-500 transform origin-left scale-x-0 group-hover:scale-x-100"></span>
+            <span className="absolute inset-0 bg-red-500 transition-transform duration-500 transform origin-left scale-x-0 group-hover:scale-x-100"></span>
           </button>
+        </div>
+
+        {/* Image Section - Right side */}
+        <div className="hidden lg:block w-1/2 relative h-[600px]">
+          {/* Arc image */}
+          <Image
+            src="/image/arc.png"
+            alt="arc"
+            width={400}
+            height={400}
+            className="absolute top-0 left-1/2 transform -translate-x-1/2 z-0 rotate-[18deg]"
+          />
+          {/* Graduate Lady Image */}
+          <Image
+            src="/image/lady.png"
+            alt="Graduate"
+            width={500}
+            height={600}
+            className="relative z-10 mx-auto"
+          />
+
+          {/* Course Text Boxes */}
+          {[
+            { text: "Java Full Stack", position: "top-4 left-0" },
+            { text: "React", position: "top-20 right-0" },
+            { text: "Data Analyst", position: "top-48 right-0" },
+            { text: "Python Data Engineering", position: "bottom-32 left-0" },
+            { text: "Snowflake/ ETL Testing", position: "bottom-16 left-1/3" },
+            { text: "AWS Cloud Engineering", position: "bottom-48 right-0" },
+          ].map((course, index) => (
+            <span
+              key={index}
+              className={`absolute px-4 py-2 bg-gray-800/90 rounded text-white font-semibold text-sm md:text-base shadow-lg z-20 ${course.position}`}
+            >
+              {course.text}
+              <span className="text-red-500 text-xs px-1">★</span>
+            </span>
+          ))}
 
           {/* Diamond Image */}
-          <img
-            src="image/diamond.png"
+          {/* <Image
+            src="/image/diamond.png"
             alt="Diamond Shape"
-            className="mt-4 mx-auto md:ml-80 h-16 w-auto"
-          />
+            width={80}
+            height={80}
+            className="absolute bottom-0 right-0 z-10"
+          /> */}
         </div>
-      </main>
+      </div>
     </div>
   );
 };
 
 export default Home;
+

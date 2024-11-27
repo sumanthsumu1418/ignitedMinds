@@ -32,10 +32,10 @@ const WhyChooseUs: React.FC = () => {
   }, []);
 
   return (
-    <div className="text-center mb-16 relative bg-gradient-to-r from-purple-50 to-purple-200 px-4 py-8 sm:py-12">
+    <div className="text-center mb-16 relative bg-black px-4 py-8 sm:py-12">
       <h2
         ref={headingRef}
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 mb-4"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-white mb-4"
         style={{
           fontFamily: "Lexend, sans-serif",
         }}
@@ -74,8 +74,8 @@ const WhyChooseUs: React.FC = () => {
             y2="44.6203"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#0063F4" />
-            <stop offset="1" stopColor="#00F0AA" />
+            <stop stopColor="#FF0000" />
+            <stop offset="1" stopColor="#FF6666" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_83_159"
@@ -85,8 +85,8 @@ const WhyChooseUs: React.FC = () => {
             y2="48.5804"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stopColor="#0063F4" />
-            <stop offset="1" stopColor="#00F0AA" />
+            <stop stopColor="#FF0000" />
+            <stop offset="1" stopColor="#FF6666" />
           </linearGradient>
           <clipPath id="clip0_83_159">
             <rect
@@ -101,9 +101,9 @@ const WhyChooseUs: React.FC = () => {
 
       <p
         ref={paragraphRef}
-        className="text-gray-800 text-sm sm:text-base md:text-lg px-4"
+        className="text-red-200 text-sm sm:text-base md:text-lg px-4"
         style={{
-          fontFamily: "var(--fontfamilyFont1)",
+          fontFamily: "Lexend, sans-serif",
           lineHeight: "1.6",
         }}
       >
@@ -133,32 +133,32 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   };
 
   return (
-    <div className="w-full max-w-[400px] bg-white shadow-lg transition-all ease-in-out transform hover:scale-105 rounded-lg overflow-hidden flex flex-col">
+    <div className="w-full max-w-[400px] bg-black shadow-lg transition-all ease-in-out transform hover:scale-105 rounded-lg overflow-hidden flex flex-col">
       <div className="relative h-48 sm:h-56">
         <img src={image} alt={title} className="w-full h-full object-cover" />
         <button
           onClick={toggleLike}
-          className="absolute top-15 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white hover:bg-gray-100 transition-colors flex items-center justify-center shadow-md"
+          className="absolute top-15 right-3 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black hover:bg-gray-900 transition-colors flex items-center justify-center shadow-md"
           aria-label="Like"
         >
           <Heart
-            className={`w-5 h-5 ${liked ? "text-red-500" : "text-gray-700"}`}
+            className={`w-5 h-5 ${liked ? "text-red-500" : "text-red-300"}`}
           />
         </button>
       </div>
-      <div className="p-4 bg-[#FFF7FC] flex-1 flex flex-col justify-between">
+      <div className="p-4 bg-black flex-1 flex flex-col justify-between">
         <h3
-          className="text-lg sm:text-xl font-bold mb-2 text-gray-800"
+          className="text-lg sm:text-xl font-bold mb-2 text-white"
           style={{
-            fontFamily: "var(--fontfamilyFont2)",
+            fontFamily: "Lexend, sans-serif",
           }}
         >
           {title}
         </h3>
         <p
-          className="text-sm sm:text-base text-gray-700"
+          className="text-sm sm:text-base text-red-200"
           style={{
-            fontFamily: "var(--fontfamilyFont2)",
+            fontFamily: "Lexend, sans-serif",
             lineHeight: "1.5",
           }}
         >
@@ -226,7 +226,7 @@ const Blog: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full bg-gradient-to-r from-purple-50 to-purple-200 px-4 py-8 sm:py-16">
+      <div className="w-full bg-black px-4 py-8 sm:py-16">
         <div className="max-w-[1440px] mx-auto">
           <Head>
             <title>My Next.js App</title>
@@ -240,10 +240,10 @@ const Blog: React.FC = () => {
           <div className="sm:hidden relative mt-8 sm:mt-16">
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow z-10"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 bg-black rounded-full shadow z-10"
               aria-label="Previous Slide"
             >
-              <ChevronLeft />
+              <ChevronLeft className="text-white" />
             </button>
             <div className="overflow-hidden w-full">
               <div
@@ -265,10 +265,10 @@ const Blog: React.FC = () => {
             </div>
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 bg-white rounded-full shadow z-10"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 bg-black rounded-full shadow z-10"
               aria-label="Next Slide"
             >
-              <ChevronRight />
+              <ChevronRight className="text-white" />
             </button>
           </div>
 
