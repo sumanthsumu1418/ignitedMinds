@@ -69,7 +69,7 @@ export default function About() {
               </svg>
             </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-300 border-b-2 border-red-500">
-              Student&apos;s Choice
+              learner&apos;s Choice
             </span>
           </h1>
         </div>
@@ -99,14 +99,14 @@ export default function About() {
           {/* Right Column - Features */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 md:gap-y-12">
             {[
-              "Skilled & Certified Faculty",
-              "100% Job Assistance",
-              "Value for your Money",
-              "1-on-1 mentorship with dedicated Placement Managers",
-              "Special attention given to each student",
-              "Digital Certification after Completion",
-              "Highly practical oriented training",
-              "Learn anytime, anywhere, with any device",
+              "Learn from working professional with 10+ years industry experience",
+              "Real-time examples with everyday assignments",
+              "Hands on coding with 2 mini projects and 2 final projects",
+              "Study materials and recordings for future reference",
+              "weekly tests , assignments and presentation by each individuals",
+              "Question bank, resume preparation,  mock interviews",
+              "Option of learning online / offline with competitive price. Value for money",
+              "Help in getting interviews from job portals and reference from alumins",
             ].map((feature, index) => (
               <div key={index} className="flex items-center gap-4">
                 <span className="font-semibold text-4xl text-red-500">

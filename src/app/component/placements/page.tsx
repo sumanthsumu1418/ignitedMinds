@@ -49,7 +49,7 @@ export default function Placements() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
       <Navbar />
-      <div className="h-16"></div> {/* Gap below navbar */}
+      <div className="h-16 mb-6"></div> {/* Gap below navbar */}
       <main className="flex-grow">
         <HeroSection />
         <div className="container mx-auto px-4 py-8">

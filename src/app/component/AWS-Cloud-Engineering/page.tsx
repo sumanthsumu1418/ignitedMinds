@@ -274,7 +274,7 @@ export default function AWSCloudEngineeringCourse() {
           </div>
         </div>
       </div> */}
-      <Card>
+      {/* <Card>
         <CardContent>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-8 text-center">
             Course Details
@@ -312,7 +312,7 @@ export default function AWSCloudEngineeringCourse() {
             </Link>
           </div>
         </CardContent>
-      </Card>{" "}
+      </Card>{" "} */}
       {/* Course Details Section */}
       <Card>
         <CardContent>

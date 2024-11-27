@@ -5,7 +5,7 @@ const Course = () => {
   const bigCard_Data = [
     {
       title: "Career guidance for",
-      description: "Graduates",
+      description: "Job Seekers",
       img: "/image/CareerGuidance_Images/Frame 1.png",
       icon: "/image/CareerGuidance_Images/right_arrow.svg",
       link: "/component/Courses",
