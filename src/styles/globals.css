@@ -1,0 +1,13 @@
+/* Global styles for slick-dots */
+.slick-dots {
+    bottom: -30px;
+  }
+  
+  .slick-dots li button:before {
+    color: red;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: black;
+  }
+  
