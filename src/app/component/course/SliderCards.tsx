@@ -408,6 +408,118 @@
 
 // export default SliderCards;
 
+// "use client";
+
+// import React, { useState, useEffect } from "react";
+// import Image from "next/image";
+
+// interface SliderCard {
+//   image: string;
+//   title: string;
+// }
+
+// interface SliderCardsProps {
+//   cards: SliderCard[];
+// }
+
+// const SliderCards: React.FC<SliderCardsProps> = ({ cards }) => {
+//   const [position, setPosition] = useState(0);
+//   const cardWidthDesktop = 18; // Smaller width for desktop (5-6 cards)
+//   const cardGapDesktop = 2; // Gap percentage for desktop
+//   const cardWidthMobile = 50; // Smaller width for mobile (1 card)
+//   const cardGapMobile = 5; // Gap percentage for mobile
+
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setPosition((prevPosition) => {
+//         const cardWidth =
+//           window.innerWidth <= 768 ? cardWidthMobile : cardWidthDesktop;
+//         const cardGap =
+//           window.innerWidth <= 768 ? cardGapMobile : cardGapDesktop;
+
+//         const newPosition = prevPosition - (cardWidth + cardGap);
+//         const maxOffset =
+//           window.innerWidth <= 768
+//             ? -(cardWidthMobile + cardGapMobile) * cards.length +
+//               cardWidthMobile +
+//               cardGapMobile
+//             : -(100 + (cardGapDesktop * (cards.length - 1)) / 5);
+
+//         return newPosition <= maxOffset ? 0 : newPosition;
+//       });
+//     }, 3000); // Slide every 3 seconds
+
+//     return () => clearInterval(interval);
+//   }, [cards.length]);
+
+//   return (
+//     <div className="w-full overflow-hidden px-4 py-8">
+//       <div
+//         className="flex transition-transform duration-700"
+//         style={{
+//           transform: `translateX(${position}%)`,
+//           width: `calc(${
+//             cards.length *
+//             (window.innerWidth <= 768
+//               ? cardWidthMobile + cardGapMobile
+//               : cardWidthDesktop + cardGapDesktop)
+//           }%)`,
+//         }}
+//       >
+//         {cards.map((card, index) => (
+//           <div
+//             key={index}
+//             className="flex-shrink-0 card-mobile"
+//             style={{
+//               width: `${
+//                 window.innerWidth <= 768 ? cardWidthMobile : cardWidthDesktop
+//               }%`,
+//               marginRight: `${
+//                 window.innerWidth <= 768 ? cardGapMobile : cardGapDesktop
+//               }%`,
+//             }}
+//           >
+//             <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+//               <div
+//                 className="relative w-full"
+//                 style={{
+//                   height: window.innerWidth <= 768 ? "150px" : "150px", // Smaller card height
+//                 }}
+//               >
+//                 <Image
+//                   src={card.image}
+//                   alt={card.title}
+//                   layout="fill"
+//                   objectFit="cover"
+//                   className="rounded-t-lg"
+//                 />
+//               </div>
+//               <div className="p-2">
+//                 <h3 className="text-white text-sm font-medium truncate text-center">
+//                   {card.title}
+//                 </h3>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+
+//       <style jsx>{`
+//         @media (max-width: 768px) {
+//           .flex {
+//             justify-content: center;
+//           }
+//           .card-mobile {
+//             margin: 0 auto; /* Center the cards */
+//           }
+//         }
+//       `}</style>
+//     </div>
+//   );
+// };
+
+// export default SliderCards;
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -424,12 +536,16 @@ interface SliderCardsProps {
 
 const SliderCards: React.FC<SliderCardsProps> = ({ cards }) => {
   const [position, setPosition] = useState(0);
-  const cardWidthDesktop = 18; // Smaller width for desktop (5-6 cards)
-  const cardGapDesktop = 2; // Gap percentage for desktop
-  const cardWidthMobile = 50; // Smaller width for mobile (1 card)
-  const cardGapMobile = 5; // Gap percentage for mobile
+  const [isClient, setIsClient] = useState(false); // Track if we are on the client
+  const cardWidthDesktop = 18;
+  const cardGapDesktop = 2;
+  const cardWidthMobile = 50;
+  const cardGapMobile = 5;
 
   useEffect(() => {
+    // Ensure this runs only on the client
+    setIsClient(true);
+
     const interval = setInterval(() => {
       setPosition((prevPosition) => {
         const cardWidth =
@@ -447,10 +563,12 @@ const SliderCards: React.FC<SliderCardsProps> = ({ cards }) => {
 
         return newPosition <= maxOffset ? 0 : newPosition;
       });
-    }, 3000); // Slide every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [cards.length]);
+
+  if (!isClient) return null; // Avoid rendering on the server
 
   return (
     <div className="w-full overflow-hidden px-4 py-8">
@@ -483,7 +601,7 @@ const SliderCards: React.FC<SliderCardsProps> = ({ cards }) => {
               <div
                 className="relative w-full"
                 style={{
-                  height: window.innerWidth <= 768 ? "150px" : "150px", // Smaller card height
+                  height: window.innerWidth <= 768 ? "150px" : "150px",
                 }}
               >
                 <Image
@@ -510,7 +628,7 @@ const SliderCards: React.FC<SliderCardsProps> = ({ cards }) => {
             justify-content: center;
           }
           .card-mobile {
-            margin: 0 auto; /* Center the cards */
+            margin: 0 auto;
           }
         }
       `}</style>
