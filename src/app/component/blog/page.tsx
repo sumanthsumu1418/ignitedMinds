@@ -298,7 +298,6 @@ import Head from "next/head";
 import { Heart, ChevronLeft, ChevronRight } from "lucide-react";
 import gsap from "gsap";
 import Navbar from "../Navbar";
-import Footer from "../Footer";
 
 const WhyChooseUs: React.FC = () => {
   const headingRef = useRef(null);
@@ -579,7 +578,6 @@ const Blog: React.FC = () => {
               />
             ))}
           </div>
-          <Footer />
         </div>
       </div>
     </div>
