@@ -38,7 +38,7 @@ import Component from "./component/placement/page";
 import TestimonialCarousel from "./component/TestimonialCard";
 import ContactForm from "./component/contact/page";
 import Footer from "./component/Footer";
-import Chatbot from "./component/ChatBot";
+// import Chatbot from "./component/ChatBot";
 
 const HomePage: React.FC = () => (
   <div className="flex flex-col min-h-screen bg-black">
@@ -55,7 +55,7 @@ const HomePage: React.FC = () => (
       <ContactForm />
     </div>
     <Footer />
-    <Chatbot />
+    {/* <Chatbot /> */}
   </div>
 );
 
