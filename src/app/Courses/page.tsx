@@ -38,7 +38,7 @@ const courses = [
     duration: "2 Months",
     price: "15,000",
     image: "/image/Courses/awsbuy.jpeg",
-    link: "AWS-Cloud-Engineering",
+    link: "aws-cloud-engineering",
   },
   {
     name: "Snowflakes/ETL Testing",
@@ -64,8 +64,8 @@ const courses = [
 ];
 
 const achievements = [
-  { title: "Training Centres", count: 100 },
-  { title: "Students Trained", count: 10000 },
+  { title: "Placed Students", count: 1000 },
+  { title: "Students Trained", count: 5000 },
   { title: "Years Legacy of Success", count: 5 },
 ];
 
@@ -485,7 +485,7 @@ export default function CoursesPage() {
           >
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 mb-4 sm:mb-0">
               <motion.div
-                className="text-red-500"
+                className="text-white-500"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5 }}
               >
