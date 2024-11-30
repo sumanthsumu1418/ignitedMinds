@@ -35,10 +35,11 @@ import Course from "./component/course/Page";
 import About from "./component/about/page";
 import Blog from "./component/blog/page";
 import Component from "./component/placement/page";
-import TestimonialCarousel from "./component/TestimonialCard";
+// import TestimonialCarousel from "./component/TestimonialCard";
 import ContactForm from "./component/contact/page";
 import Footer from "./component/Footer";
 // import Chatbot from "./component/ChatBot";
+import Testimonials from "./component/TestimonialCarousel";
 
 const HomePage: React.FC = () => (
   <div className="flex flex-col min-h-screen bg-black">
@@ -51,7 +52,8 @@ const HomePage: React.FC = () => (
       <About />
       <Blog />
       <Component />
-      <TestimonialCarousel />
+      {/* <TestimonialCarousel /> */}
+      <Testimonials />
       <ContactForm />
     </div>
     <Footer />

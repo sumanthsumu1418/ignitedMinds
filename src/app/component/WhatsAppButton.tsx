@@ -1,7 +1,7 @@
 import { PhoneIcon as WhatsappIcon } from "lucide-react";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "7338431982";
+  const phoneNumber = "8296068323";
   const whatsappUrl = `https://wa.me/${phoneNumber}`;
 
   return (

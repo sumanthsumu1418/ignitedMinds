@@ -1,91 +1,4 @@
-/* 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 6px 24px rgba(0, 0, 0, 0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-
-@keyframes shake {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(2px, -2px);
-  }
-  50% {
-    transform: translate(-2px, 2px);
-  }
-  75% {
-    transform: translate(1px, -1px);
-  }
-}
-
-
-.icon:hover {
-  animation: shake 0.6s ease-in-out;
-}
-
-.card:hover {
-  background-color: rgba(225, 245, 254, 0.9); 
-  transition: background-color 0.3s ease-in-out;
-}
- */
-
-
-
-
-
-/* .card {
-  overflow: hidden; 
-}
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 6px 24px rgba(255, 0, 0, 0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-@keyframes shakeHorizontal {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-4px);
-  }
-  50% {
-    transform: translateX(4px);
-  }
-  75% {
-    transform: translateX(-2px);
-  }
-}
-
-
-.icon:hover {
-  animation: shakeHorizontal 0.5s ease-in-out;
-}
-
-.card:hover {
-  background-color: rgba(255, 0, 0, 0.1);
-  transition: background-color 0.3s ease-in-out;
-}
-
-@media (max-width: 768px) {
-  .card {
-    width: 90%;
-    margin: 0 auto;
-  }
-}
-
-.circleBackground {
-  background: radial-gradient(circle, rgba(255,0,0,0.2) 0%, rgba(255,0,0,0) 70%);
-}
- */
-
-
-
-
- .card {
+ /* .card {
    overflow: hidden; 
  }
  .card:hover {
@@ -132,7 +45,70 @@
  .sliderContainer {
    overflow: hidden;
    padding-bottom: 40px; 
- }
+ } */
 
  
- 
+ .bigCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bigCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.exploreButton {
+  transition: transform 0.2s ease;
+}
+
+.bigCard:hover .exploreButton {
+  transform: translateX(10px);
+}
+
+.backgroundImage {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bigCard:hover .backgroundImage {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+
+.sliderContainer {
+  position: relative;
+}
+
+.sliderCard {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.sliderCard.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.sliderCard.animating {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.sliderImage {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+

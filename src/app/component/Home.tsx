@@ -1,8 +1,7 @@
-
-
 "use client";
 
 import { FC } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 const Home: FC = () => {
@@ -16,7 +15,7 @@ const Home: FC = () => {
             Attention Job Seekers!
           </h2>
           <div className="text-4xl md:text-5xl font-semibold leading-tight">
-            <span className="text-red-400">Learn</span> by Experts <br /> 
+            <span className="text-red-400">Learn</span> by Experts <br />
             Get hired in <br />
             corporates
             <div className="relative mt-4">
@@ -41,15 +40,17 @@ const Home: FC = () => {
           </p>
 
           {/* Explore Now Button */}
-          <button className="relative w-64 h-16 overflow-hidden border-2 border-red-500 text-red-500 rounded-md font-semibold shadow-lg flex items-center group mt-8">
-            <span className="relative z-10 text-white text-2xl bg-red-500 px-6 py-4">
-              →
-            </span>
-            <span className="relative text-xl z-10 pl-4 pr-4 transition-all duration-500 group-hover:text-white">
-              Explore Now
-            </span>
-            <span className="absolute inset-0 bg-red-500 transition-transform duration-500 transform origin-left scale-x-0 group-hover:scale-x-100"></span>
-          </button>
+          <Link href="/registration">
+            <button className="relative w-64 h-16 overflow-hidden border-2 border-red-500 text-red-500 rounded-md font-semibold shadow-lg flex items-center group mt-8">
+              <span className="relative z-10 text-white text-2xl bg-red-500 px-6 py-4">
+                →
+              </span>
+              <span className="relative text-xl z-10 pl-4 pr-4 transition-all duration-500 group-hover:text-white">
+                Explore Now
+              </span>
+              <span className="absolute inset-0 bg-red-500 transition-transform duration-500 transform origin-left scale-x-0 group-hover:scale-x-100"></span>
+            </button>
+          </Link>
         </div>
 
         {/* Image Section - Right side */}
@@ -104,4 +105,3 @@ const Home: FC = () => {
 };
 
 export default Home;
-
