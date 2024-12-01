@@ -40,7 +40,7 @@ const Register = () => {
       {/* Register Section */}
       <div
         ref={sectionRef}
-        className="flex flex-col lg:flex-row items-center gap-8 px-4 lg:px-16 py-12 bg-black min-h-screen pt-20 sm:pt-24"
+        className="flex flex-col lg:flex-row items-center gap-8 px-4 lg:px-16 py-12 bg-black min-h-screen pt-32 sm:pt-26 lg:pt-20"
       >
         {/* Text Section */}
         <div className="flex-1 animate-on-scroll opacity-0 transform translate-y-10">
@@ -48,7 +48,7 @@ const Register = () => {
             Register Today <br />
             With Us!
           </h1>
-          <p className="font-sans text-lg lg:text-2xl text-white font-medium mt-4">
+          <p className="font-sans text-lg lg:text-2xl text-red-200 font-medium mt-4">
             Are you ready to learn?
           </p>
           <p className="font-sans text-base lg:text-lg text-white leading-7 mt-4">
@@ -57,10 +57,26 @@ const Register = () => {
           </p>
         </div>
 
+        {/* <div className="flex flex-col lg:flex-row items-center gap-8 px-4 lg:px-16 py-12 bg-black min-h-screen pt-28 sm:pt-24 lg:pt-20">
+  <div className="flex-1 animate-on-scroll opacity-0 transform translate-y-10 text-center lg:text-left">
+  <h1 className="font-serif text-3xl sm:text-4xl lg:text-6xl font-bold text-blue-500 tracking-wide leading-tight">
+    Register Today <br className="hidden sm:inline" />
+    With Us!
+  </h1>
+  <p className="font-sans text-base sm:text-lg lg:text-2xl text-red-200 font-medium mt-4">
+    Are you ready to learn?
+  </p>
+  <p className="font-sans text-sm sm:text-base lg:text-lg text-white leading-7 mt-4">
+    Join our courses for a wonderful learning experience with a
+    technical backset in addition to your professional development.
+  </p>
+</div>
+</div> */}
+
         {/* Image Section */}
         <div className="flex-1 w-full lg:w-auto flex justify-center">
           <Image
-            src="/image/team.jpg"
+            src="/image/Courses/register.png"
             alt="Team discussing"
             width={400}
             height={300}
