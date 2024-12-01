@@ -89,15 +89,6 @@ const Home: FC = () => {
               <span className="text-red-500 text-xs px-1">★</span>
             </span>
           ))}
-
-          {/* Diamond Image */}
-          {/* <Image
-            src="/image/diamond.png"
-            alt="Diamond Shape"
-            width={80}
-            height={80}
-            className="absolute bottom-0 right-0 z-10"
-          /> */}
         </div>
       </div>
     </div>
