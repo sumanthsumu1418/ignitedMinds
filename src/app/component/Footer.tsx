@@ -282,7 +282,7 @@ const Footer: FC = () => {
                 text: "#136, 2nd Main Rd, 4th Phase, Yelahanka New Town, Bengaluru, 560064, Karnataka",
               },
               { icon: "Phone", text: "+91-8296068323" },
-              { icon: "email", text: "vinayalbur@ignitedmindslearning.com" },
+              { icon: "email", text: "ingnitedmindslearning@gmail.com" },
             ].map((item) => (
               <p
                 key={item.icon}
