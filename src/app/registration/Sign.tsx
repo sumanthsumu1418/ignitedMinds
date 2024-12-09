@@ -415,8 +415,8 @@
 
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { submitContactForm } from "../actions/contact";
 import WhatsAppButton from "../component/WhatsAppButton";
@@ -465,6 +465,33 @@ export default function Sign() {
     success: boolean;
     message: string;
   } | null>(null);
+
+  const headerRef = useRef(null);
+  const imageRef = useRef(null);
+  const buttonRef = useRef(null);
+  const formRef = useRef(null);
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start("visible");
+
+    const handleResize = () => {
+      const isMobile = window.innerWidth <= 768;
+      if (isMobile) {
+        controls.start({ fontSize: "3xl", transition: { duration: 0.5 } });
+      } else {
+        controls.start({ fontSize: "5xl", transition: { duration: 0.5 } });
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [controls]);
 
   const validateForm = () => {
     let isValid = true;
@@ -520,6 +547,11 @@ export default function Sign() {
     setSubmitStatus(null);
 
     if (!validateForm()) {
+      controls.start({
+        y: [0, 20, 0],
+        opacity: [0, 1, 0],
+        transition: { duration: 1.5, times: [0, 0.2, 1] },
+      });
       return;
     }
 
@@ -540,6 +572,12 @@ export default function Sign() {
         message: "",
       });
     }
+
+    controls.start({
+      y: [0, 20, 0],
+      opacity: [0, 1, 0],
+      transition: { duration: 1.5, times: [0, 0.2, 1] },
+    });
   };
 
   return (
@@ -551,34 +589,36 @@ export default function Sign() {
     >
       <WhatsAppButton />
 
-      {submitStatus && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className={`fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-full shadow-lg z-50 ${
-            submitStatus.success ? "bg-green-500" : "bg-red-500"
-          } text-white`}
-        >
-          {submitStatus.message}
-        </motion.div>
-      )}
+      <motion.div
+        animate={controls}
+        className={`fixed top-4 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-full shadow-lg z-50 ${
+          submitStatus?.success ? "bg-green-500" : "bg-red-500"
+        } text-white opacity-0`}
+      >
+        {submitStatus?.message || "Please fill out all required fields"}
+      </motion.div>
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
         <motion.div
+          ref={headerRef}
           variants={formAnimation}
           className="text-center md:text-left space-y-8"
         >
           <div className="space-y-4">
             <div className="w-12 h-1 bg-red-600 hidden md:block" />
-            <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-500">
+            <motion.h2
+              animate={controls}
+              className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-500"
+            >
               Start Your Journey
-            </h2>
+            </motion.h2>
             <p className="text-lg text-red-300 max-w-md mx-auto md:mx-0">
               Fill out the form below to begin your IT career transformation
             </p>
           </div>
 
           <motion.div
+            ref={imageRef}
             variants={formAnimation}
             className="relative w-full max-w-md mx-auto md:mx-0 h-[300px]"
           >
@@ -606,14 +646,148 @@ export default function Sign() {
             </motion.div>
           </div>
 
-          <div className="bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-[2rem] p-8 shadow-xl">
+          <motion.div
+            ref={formRef}
+            className="bg-gray-800 bg-opacity-50 backdrop-filter backdrop-blur-lg rounded-[2rem] p-8 shadow-xl"
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
               <motion.div variants={inputAnimation} className="space-y-5">
-                {/* Form fields here - same as your original code but wrapped in motion.div */}
-                {/* For brevity, I'm not repeating all the form fields, but they should be wrapped in motion.div with the inputAnimation variant */}
+                <div>
+                  <label htmlFor="fullName" className="block text-red-300 mb-2">
+                    Full Name
+                  </label>
+                  <input
+                    id="fullName"
+                    type="text"
+                    value={formData.fullName}
+                    onChange={(e) =>
+                      setFormData({ ...formData, fullName: e.target.value })
+                    }
+                    className={`w-full px-4 py-2 bg-gray-700 border ${
+                      errors.fullName ? "border-red-500" : "border-gray-600"
+                    } rounded-lg focus:outline-none focus:border-red-500 text-white transition-colors duration-300`}
+                  />
+                  {errors.fullName && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.fullName}
+                    </p>
+                  )}
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      htmlFor="contactNumber"
+                      className="block text-red-300 mb-2"
+                    >
+                      Contact Number
+                    </label>
+                    <input
+                      id="contactNumber"
+                      type="tel"
+                      placeholder="Your number"
+                      value={formData.contactNumber}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          contactNumber: e.target.value,
+                        })
+                      }
+                      className={`w-full px-4 py-2 bg-gray-700 border ${
+                        errors.contactNumber
+                          ? "border-red-500"
+                          : "border-gray-600"
+                      } rounded-lg focus:outline-none focus:border-red-500 text-white transition-colors duration-300`}
+                    />
+                    {errors.contactNumber && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.contactNumber}
+                      </p>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-red-300 mb-2">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="Your email"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      className={`w-full px-4 py-2 bg-gray-700 border ${
+                        errors.email ? "border-red-500" : "border-gray-600"
+                      } rounded-lg focus:outline-none focus:border-red-500 text-white transition-colors duration-300`}
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-red-300 mb-3">
+                    SELECT COURSE
+                  </label>
+                  <div className="space-y-3">
+                    {[
+                      "React",
+                      "AWS Cloud Engineering",
+                      "Python Data Engineering",
+                      "Java Full Stack",
+                      "Data Analyst",
+                      "Snowflake/ETL Testing",
+                    ].map((course) => (
+                      <label
+                        key={course}
+                        className="flex items-center space-x-3 text-red-200"
+                      >
+                        <input
+                          type="radio"
+                          name="course"
+                          value={course}
+                          checked={formData.course === course}
+                          onChange={() => setFormData({ ...formData, course })}
+                          className="w-4 h-4 text-red-600 border-gray-700 focus:ring-red-500"
+                        />
+                        <span>{course}</span>
+                      </label>
+                    ))}
+                  </div>
+                  {errors.course && (
+                    <p className="text-red-500 text-sm mt-1">{errors.course}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-red-300 mb-2">
+                    MESSAGE
+                  </label>
+                  <textarea
+                    id="message"
+                    placeholder="Your text here"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    className={`w-full px-4 py-2 bg-gray-700 border ${
+                      errors.message ? "border-red-500" : "border-gray-600"
+                    } rounded-lg focus:outline-none focus:border-red-500 h-32 resize-none text-white transition-colors duration-300`}
+                  />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.message}
+                    </p>
+                  )}
+                </div>
               </motion.div>
 
               <motion.button
+                ref={buttonRef}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
@@ -622,7 +796,7 @@ export default function Sign() {
                 SUBMIT
               </motion.button>
             </form>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
