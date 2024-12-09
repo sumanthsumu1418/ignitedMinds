@@ -606,12 +606,12 @@ export default function Sign() {
         >
           <div className="space-y-4">
             <div className="w-12 h-1 bg-red-600 hidden md:block" />
-            <motion.h2
+            <motion.h1
               animate={controls}
               className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-500"
             >
               Start Your Journey
-            </motion.h2>
+            </motion.h1>
             <p className="text-lg text-red-300 max-w-md mx-auto md:mx-0">
               Fill out the form below to begin your IT career transformation
             </p>
