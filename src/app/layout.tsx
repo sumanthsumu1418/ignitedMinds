@@ -227,7 +227,7 @@ export default function RootLayout({
         <link rel="canonical" href="https://www.ignitedmindslearning.com" />
         <meta
           name="google-site-verification"
-          content="1AEfaKvC42_kdaBFfUMPc1gJ4MPIthHdl4KGjjhQBak"
+          content="UK77my9ALBWyBUS6-rcruDH5Tki84bWpOR_u98qQrhM"
         />
       </head>
       <body
