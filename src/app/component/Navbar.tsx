@@ -830,13 +830,15 @@ export default function Navbar() {
 
   useEffect(() => {
     // Animate navbar items on mount
-    gsap.from(navbarRef.current?.children, {
-      opacity: 0,
-      y: -20,
-      stagger: 0.1,
-      duration: 0.5,
-      ease: "power2.out",
-    });
+    if (navbarRef.current) {
+      gsap.from(Array.from(navbarRef.current.children), {
+        opacity: 0,
+        y: -20,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "power2.out",
+      });
+    }
   }, []);
 
   useEffect(() => {
