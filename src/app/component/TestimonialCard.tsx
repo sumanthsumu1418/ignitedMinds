@@ -25,7 +25,7 @@ const testimonials = [
     image: "/placeholder.svg?height=400&width=400",
   },
   {
-    name: "David Lee",
+    name: "Suraj Gowda",
     role: "Industry Expert",
     image: "/placeholder.svg?height=400&width=400",
   },
@@ -56,12 +56,10 @@ export default function TestimonialCarousel() {
       <div className="container mx-auto max-w-[1390px] h-auto md:h-[878px]">
         <div className="relative mb-8 md:mb-16">
           <h2
-            className="text-4xl md:text-[83.86px] leading-tight md:leading-[109.02px] text-white font-bold relative"
+            className="text-4xl md:text-[83.86px] leading-tight md:leading-[109.02px] bg-gradient-to-r from-red-400 to-orange-400 text-transparent bg-clip-text font-bold relative"
             style={{ fontFamily: "Lexend, sans-serif" }}
           >
-            Our reputation
-            <br />
-            says it all
+            Our Mentors says it all
           </h2>
         </div>
 

@@ -986,7 +986,7 @@ export default function Navbar() {
             </div>
           </div>
           <Link
-            href="/component/blog"
+            href="/blog"
             className={`${
               activeLink === "Blogs" ? "text-red-500" : "text-white"
             } hover:text-red-500 transition-colors duration-200`}
@@ -1121,7 +1121,7 @@ export default function Navbar() {
             </div>
           </div>
           <Link
-            href="/component/blog"
+            href="/blog"
             className={`${
               activeLink === "Blogs" ? "text-red-500" : "text-white"
             } hover:text-red-500 transition-colors duration-200`}
