@@ -784,37 +784,37 @@ const BlogContent: React.FC = () => {
       title: "Comprehensive Curriculum",
       description:
         "Our courses in Data Analysis and React.js are designed by industry experts, ensuring you learn the most in-demand skills and tools.",
-      image: "/image/comprehensive-curriculum.jpg",
+      image: "/image/blog1.png",
     },
     {
       title: "Gain Experience Quickly",
       description:
         "With our intensive training programs, gain 6 months to 1 year of industry-level experience in just 2-3 months of focused learning.",
-      image: "/image/quick-experience.jpg",
+      image: "/image/blog2.png",
     },
     {
       title: "Expert Mentorship",
       description:
         "Learn from seasoned professionals who bring years of industry experience to the table, providing personalized guidance.",
-      image: "/image/expert-mentorship.jpg",
+      image: "/image/blog3.png",
     },
     {
       title: "100% Placement Assistance",
       description:
         "Our dedicated placement team works tirelessly to connect you with top companies, ensuring you land your dream job.",
-      image: "/image/placement-assistance.jpg",
+      image: "/image/blog4.png",
     },
     {
       title: "Flexible Learning Options",
       description:
         "Our online training programs allow you to learn at your own pace, making it easy to balance your studies with other commitments.",
-      image: "/image/flexible-learning.jpg",
+      image: "/image/blog5.png",
     },
     {
       title: "Real-world Projects",
       description:
         "Gain hands-on experience through real-world projects and case studies, simulating professional challenges.",
-      image: "/image/real-world-projects.jpg",
+      image: "/image/blog6.png",
     },
   ];
 
