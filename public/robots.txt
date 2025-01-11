@@ -1,5 +1,16 @@
 User-agent: *
 Allow: /
 
+# Sitemaps
 Sitemap: https://www.ignitedmindslearning.com/sitemap.xml
+
+# Important pages
+Allow: /aws-cloud-engineering
+Allow: /Courses
+Allow: /aboutus
+Allow: /registration
+
+# Prevent duplicate content
+Disallow: /api/
+Disallow: /*?*
 
