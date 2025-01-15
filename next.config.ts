@@ -26,16 +26,41 @@
 
 
 
-import type { NextConfig } from "next";
+// import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+// const nextConfig: NextConfig = {
+//   reactStrictMode: true,
+//   env: {
+//     SMTP_EMAIL: process.env.SMTP_EMAIL,
+//     SMTP_PASSWORD: process.env.SMTP_PASSWORD,
+//   },
+//   images: {
+//     domains: ['ignitedmindsit.com'],
+//   },
+//   async rewrites() {
+//     return [
+//       {
+//         source: '/sitemap.xml',
+//         destination: '/api/sitemap.xml',
+//       },
+//     ];
+//   },
+// };
+
+// export default nextConfig;
+
+
+
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   env: {
     SMTP_EMAIL: process.env.SMTP_EMAIL,
     SMTP_PASSWORD: process.env.SMTP_PASSWORD,
   },
   images: {
-    domains: ['ignitedmindsit.com'],
+    domains: ['source.unsplash.com', 'ignitedmindsit.com'],
   },
   async rewrites() {
     return [
@@ -47,4 +72,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
