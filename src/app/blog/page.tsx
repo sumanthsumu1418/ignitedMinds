@@ -78,7 +78,7 @@ const KnowledgeCenter: React.FC = () => {
       {/* Hero Section */}
       <div
         ref={heroRef}
-        className="w-full px-4 py-16 md:py-48 bg-gradient-to-br from-red-500 via-red-600 to-red-700"
+        className="w-full px-8 py-48 sm:py-16 md:py-48 lg:py-56  bg-gradient-to-br from-red-500 via-red-600 to-red-700"
       >
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
