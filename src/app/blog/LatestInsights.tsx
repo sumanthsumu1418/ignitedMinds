@@ -1,33 +1,36 @@
 import React from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+// import Link from "next/link";
+// import { ArrowRight } from "lucide-react";
 import BlogCard from "./BlogCard";
 
 const LatestInsights: React.FC = () => {
   const blogPosts = [
     {
-      title: "The Future of AI in Education",
+      title: "Zero Copy Clone SnowFlake",
       category: "Technology",
       date: "Jan 15, 2024",
-      image: "/image/blog1.png",
+      image: "/image/article1.png",
+      link: "zero-clone-snowflake-blog",
       description:
-        "Explore how artificial intelligence is revolutionizing the education sector...",
+        "Zero Copy Cloning in Snowflake allows users to create fully functional copies of databases...",
     },
     {
-      title: "Mastering Data Visualization",
+      title: "Snowflake Architecture Diagram",
       category: "Data Science",
       date: "Jan 14, 2024",
-      image: "/image/blog2.png",
+      image: "/image/article2.jpg",
+      link: "snowflake-architecture-blog",
       description:
-        "Learn the art and science of effective data visualization techniques...",
+        "The Snowflake Architecture refers to the unique design of the Snowflake Data Platform...",
     },
     {
-      title: "React 18: What's New?",
-      category: "Web Development",
-      date: "Jan 13, 2024",
-      image: "/image/blog3.png",
+      title: "Essential Data Engineering",
+      category: "Data Science",
+      date: "Jan 14, 2024",
+      image: "/image/article3.jpg",
+      link: "essential-data-engineer-blog",
       description:
-        "Dive into the latest features and improvements in React 18...",
+        "Learn the art and science of effective data visualization techniques...",
     },
   ];
 
@@ -38,26 +41,26 @@ const LatestInsights: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-white">
             Latest Insights
           </h2>
-          <Link
+          {/* <Link
             href="../articles"
             className="hidden md:flex items-center text-white hover:text-red-400 transition-colors"
           >
             View all articles <ArrowRight className="ml-2 w-4 h-4" />
-          </Link>
+          </Link> */}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post, index) => (
             <BlogCard key={index} {...post} />
           ))}
         </div>
-        <div className="mt-8 text-center md:hidden">
+        {/* <div className="mt-8 text-center md:hidden">
           <Link
             href="../articles"
             className="inline-flex items-center text-white hover:text-red-400 transition-colors"
           >
             View all articles <ArrowRight className="ml-2 w-4 h-4" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

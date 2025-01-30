@@ -12,6 +12,7 @@ import Footer from "../component/Footer";
 import CourseCard from "./CourseCard";
 import WhyChooseUs from "./WhyChooseUs";
 import LatestInsights from "./LatestInsights";
+// import BlogsPage from "./WhyChooseUs";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -92,6 +93,7 @@ const KnowledgeCenter: React.FC = () => {
       </div>
 
       <WhyChooseUs />
+      {/* <BlogsPage /> */}
 
       {/* Courses Section */}
       {/* <section className="py-16 px-4 bg-gray-900">
