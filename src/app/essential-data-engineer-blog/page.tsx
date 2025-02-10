@@ -270,7 +270,7 @@ import type { Metadata } from "next";
 import DataEngineeringCareerContent from "./DataEngineeringCareerContent";
 
 export const metadata: Metadata = {
-  title: "Essential Data Engineer as a Career | Ignited Minds Learning",
+  title: "Essential Data Engineer as a Career",
   description:
     "Discover why data engineering is a promising career choice and how to get started in this rapidly growing field. Learn about roles, responsibilities, and essential skills.",
   keywords: [

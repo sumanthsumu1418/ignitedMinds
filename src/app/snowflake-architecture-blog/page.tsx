@@ -251,7 +251,7 @@ import type { Metadata } from "next";
 import SnowflakeArchitectureContent from "./SnowflakeArchitectureContent";
 
 export const metadata: Metadata = {
-  title: "Snowflake Architecture Diagram | Ignited Minds Learning",
+  title: "Snowflake Architecture Diagram",
   description:
     "Understand the comprehensive architecture of Snowflake's cloud data platform. Learn about its core layers, unique features, and key benefits.",
   keywords: [

@@ -241,7 +241,7 @@ import type { Metadata } from "next";
 import SnowflakeZeroCopyContent from "./SnowflakeZeroCopyContent";
 
 export const metadata: Metadata = {
-  title: "Zero Copy Cloning in Snowflake | Ignited Minds Learning",
+  title: "Zero Copy Cloning in Snowflake",
   description:
     "Discover how Zero Copy Cloning in Snowflake revolutionizes data management with efficient, cost-effective cloning. Learn about its benefits, types, and use cases.",
   keywords: [
