@@ -137,7 +137,7 @@ Additionally, soft skills such as problem-solving, teamwork, and effective commu
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-black text-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-black text-white px-8 py-48 sm:py-16 md:py-48 lg:py-56">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

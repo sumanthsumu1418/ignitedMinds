@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-// import BlogContent from "./BlogContent";
 import BlogContent from "./Blog";
 
 export const metadata: Metadata = {
